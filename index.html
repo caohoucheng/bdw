@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>点灯笼 赢vivo NEX双屏手机</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black " />
+		<link rel="stylesheet" href="css/jquery-weui.css">
+		<link rel="stylesheet" href="css/weui.min.css">
+		<link rel="stylesheet" href="css/css.css">
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+	<body>
+		<img src="image/index/index-onbg.jpg" width="0" style="position: absolute;">
+		
+		<!-- 中奖轮播 -->
+		<div class="top-adv">
+			<ul class="roundItem">
+				<li class="">张X艳点亮了“新”字灯笼;</li>
+			</ul>
+		</div>
+		<!-- 内容 -->
+		<div class="main" style="background-image: url(image/index/index-offbg.jpg);">
+			<img class="index-light" src="image/index/index-light1.png" alt="闪光">
+			<img class="index-light" src="image/index/index-light2.png" alt="闪光">
+			
+			<!-- 活动规则 -->
+			<img class="roleBtn" src="image/index/index-role.png" alt="活动规则">
+			<!-- logo -->
+			<img class="logo" src="image/index/index-logo.png" alt="logo">
+			
+			<!-- 参与人数 -->
+			<div class="joinNum">已有<span>x</span>人参加,您还有<span>x</span>次点亮机会</div>
+			
+			<!-- 协议 -->
+			<div class="xy"><input id="xy" class="xyCheckbox" type="checkbox" checked="true" ><label for="xy">我已阅读并同意本活动说明</label></div>
+			
+			<!-- 点亮圣诞树 -->
+			<img class="startBtn start-off" src="image/index/index-unstart.png" alt="点亮圣诞树-灰">
+			<img class="startBtn start-on" src="image/index/index-onstart.png" alt="点亮圣诞树">
+			<!-- 我的奖品 -->
+			<div class='myPrize'>
+				<!-- <a href="myLantern.html"><img class="" src="image/index/index-myPrize2.png" alt="我的奖品-存在新奖品"></a> -->
+				<a href="myLantern.html"><img class="" src="image/index/index-myPrize.png" alt="我的奖品-默认"></a>
+			</div>
+			<!-- 填写个人信息 -->
+			<div class="index-mask">
+				<div class="index-userinfo">
+					<img src="image/index/txt-info.png" alt="">
+					<div class="info-input">
+						<label for="">姓名:</label>
+						<input class="index-username" type="text">
+					</div>
+					<div class="info-input">
+						<label for="">联系电话:</label>
+						<input class="index-tel" type="number">
+					</div>
+					<div class="info-input">
+						<label for="">门店地址:</label>
+						<input class="index-address" type="text" readonly>
+					</div>
+					<img class="sub" src="image/index/submit-on.png" alt="">
+					<img class="subs" src="image/index/submit-off.png" alt="">
+				</div>
+				
+			</div>
+			<!-- 规则 -->
+			<div class="role-mask">
+				<div class="role-box">
+					<div class="role-nav">
+						<div class="nav-r">
+							<img class="role-on" src="image/role/role-btn-on.png" alt="规则">
+							<img class="role-off hide" src="image/role/role-btn.png" alt="规则">
+						</div>
+						<div class="nav-p">
+							<img class="prize-off" src="image/role/prize-btn.png" alt="规则">
+							<img class="prize-on hide" src="image/role/prize-btn-on.png" alt="规则">
+						</div>
+					</div>
+					<img class="role-img" src="image/role/role-txt.png" alt="" width="100%">
+					<div class="prize-box hide">
+						<img class="flow" src="image/index/index-flow1.png" alt="" style="bottom: 10%;right: 5%;">
+						<img class="flow" src="image/index/index-flow2.png" alt="" style="bottom: 5%;right: 5%;">
+						<img class="prize-img" src="image/index/prize-bg.png" width="100%" height="100%" alt="">
+						<div class="prize-content">
+							<!-- <p class="prize-none">您的钱包还是空的，赶紧去参加“点灯笼 赢vivo NEX双屏手机”活动吧</p> -->
+							<div>
+								<img class="dh-prize" src="image/role/lb.png" alt="礼包">
+								<img class="dh-prize" src="image/role/sj.png" alt="手机">
+								
+								<img class="dh-btn" src="image/role/dh-off.png" alt="已兑">
+								<img class="dh-btn" src="image/role/dh-on.png" alt="兑奖">
+								<img class="dh-btn" src="image/role/dh-sx.png" alt="失效">
+								<p class="dh-info">
+									兑奖时间:2019.01.15 10:25
+									<br>
+									游戏ID:
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		<script src="js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-weui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/city-picker.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			// 规则
+			$('.roleBtn').click(function(){
+				$('.role-mask').show();
+			})
+			
+			$('.role-mask').click(function(e){
+				$('.role-mask').hide();
+			})
+			
+			$('.role-box').click(function(e){
+				return false;
+			});
+			
+			$('.role-off').click(function(e){
+				$('.prize-off').show();
+				$('.prize-on').hide();
+				$('.role-off').hide();
+				$('.role-on').show();
+				$('.role-img').css('visibility','visible');
+				$('.prize-box').hide();
+				return false;
+			})
+			$('.prize-off').click(function(e){
+				$('.prize-off').hide();
+				$('.prize-on').show();
+				$('.role-off').show();
+				$('.role-on').hide();
+				$('.role-img').css('visibility','hidden');
+				$('.prize-box').show();
+				return false;
+			})
+		</script>
+		<script type="text/javascript">
+			// 提交
+			$('.sub').click(function(){
+				console.log('提交');
+				location.href='winPrize.html'
+			});
+			
+			var username,tel,address;
+			$('.start-off').hide();
+			$('.sub').hide();
+			
+			// 点亮
+			$('.start-on').click(function() {
+				console.log('点亮')
+				$('.start-on').hide();
+				$('.start-off').show();
+				$('.index-light').show();
+				$('.xyCheckbox').attr('disabled','disabled');
+				$('.main').css('background-image','url(image/index/index-onbg.jpg)');
+				
+				var max_x=$('body').width()-50;
+				var max_y=200;
+				for(var i=0;i<10;i++){
+					$('.main').append('<img class="fireworks fireworks'+i+'" src="image/index/index-flow1.png" alt="烟花">');
+					$('.fireworks'+i).css({'left':GetRandomNum(20,max_x),'top':GetRandomNum(50,max_y)})
+				}
+				// 5s后
+				setTimeout(function() {
+					console.log('5shou');
+					$('.fireworks').remove();
+					$('.index-mask').show();
+				}, 5000)
+			})
+			// 同意协议
+			$('.xyCheckbox').click(function(){
+				if($(this).is(':checked')){
+					$('.start-on').show();
+					$('.start-off').hide();
+				}else{
+					$('.start-on').hide();
+					$('.start-off').show();
+				}
+			});
+			
+			$('.index-username').bind("input propertychange",function(event){
+				  username=$(this).val();
+				  isIn();
+			});
+			$('.index-tel').bind("input propertychange",function(event){
+				  tel=$(this).val();
+				  isIn();
+			});
+			$('.index-address').bind("input propertychange",function(event){
+				   address=$(this).val();
+				   isIn();
+			});
+			
+			// 地址
+			$(".index-address").cityPicker({
+			    title: "请选择收货地址",
+				onChange: function (picker, values, displayValues) {
+					address=displayValues.join();
+					isIn();
+				}
+			});
+			// 判断输入
+			function isIn(){
+				if(username && tel && address){
+					$('.sub').show();
+					$('.subs').hide();
+				}else{
+					$('.sub').hide();
+					$('.subs').show();
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>点灯笼 赢vivo NEX双屏手机</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black " />
+		<link rel="stylesheet" href="css/jquery-weui.css">
+		<link rel="stylesheet" href="css/weui.min.css">
+		<link rel="stylesheet" href="css/css.css">
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+	<style>
+		.couten li{
+			top: 110px;
+		}
+	</style>
+	<body>
+		<!-- 中奖轮播 -->
+		<div class="top-adv">
+			<ul class="roundItem">
+				<li class="">张X艳点亮了“新”字灯笼;</li>
+				<li class="">张X艳点亮了“新”字灯笼;</li>
+				<li class="">张X艳点亮了“新”字灯笼;</li>
+				<li class="">张X艳点亮了“新”字灯笼;</li>
+				<li class="">张X艳点亮了“新”字灯笼;</li>
+				<li class="">张X艳点亮了“新”字灯笼;</li>
+				<li class="">张X艳点亮了“新”字灯笼;</li>
+				<li class="">张X艳点亮了“新”字灯笼;</li>
+				<li class="">张X艳点亮了“新”字灯笼;</li>
+				<li class="">张X艳点亮了“新”字灯笼;</li>
+			</ul>
+		</div>
+		<div class="main" style="background-image: url(image/help/help-bg.jpg);">
+			<ul class="couten"></ul>
+			<img class="index-light" src="image/index/index-light1.png" style="top: 15%;" alt="闪光">
+			<img class="index-light" src="image/index/index-light2.png" alt="闪光">
+			
+			<!-- logo -->
+			<img class="logo" src="image/index/index-logo.png" alt="logo">
+			
+			<!-- lantern1.新 2.年 3.快 4.乐 5.诸 6.事 7.顺 8.利 -->
+			<img class="leantern-txt" style="top: 38%;" src="image/myPrize/lantern1.png" alt="">
+			
+			
+			
+			<div class="joinNum size14"  style="bottom: 26%;color: #E8A262;">恭喜您帮好友点亮了"<span>x</span>"字灯笼</div>
+			<!-- 帮他点亮 -->
+			<!-- <img class="startBtn share" style="bottom: 18%;" src="image/help/help-off.png" alt="不可帮助"> -->
+			<img class="startBtn help" style="bottom: 18%;" src="image/help/help-on.png" alt="帮他点亮">
+			<!-- 我要点亮 -->
+			<img class="startBtn share" style="bottom: 8%;" src="image/help/help-myon.png" alt="我要点亮">
+			<!-- <img class="startBtn share" style="bottom: 8%;" src="image/help/help-myoff.png" alt="不可点亮"> -->
+			<div class="tip-mask">
+				<p style="margin-top: 80%;text-align: center;color: #E8A262;">您的点亮机会已用完</p>
+			</div>
+		</div>
+		<script src="js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-weui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/city-picker.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//帮他点亮
+			$('.help').click(function(){
+				$('.index-light').show();
+				$('.leantern-txt').show();
+				
+				//您的点亮机会已用完
+				$('.tip-mask').show();
+			})
+			
+			$(".couten").css("height", $(document).height() - 250); //高度
+			var num = 0;
+			
+			//添加li
+			var add = function() {
+				var hb = parseInt(Math.random() * (25 - 1) + 1);
+				var Wh = GetRandomNum(3,10);
+			
+				var Left = GetRandomNum(10, 150);
+				var rot = (parseInt(Math.random() * (45 - (-45)) - 45)) + "deg";
+				num++;
+				$(".couten").append("<li class='li" + num + "' ><a href='javascript:;'><img src='image/myPrize/fllower.png'></a></li>");
+				$(".li" + num).css({
+					"left": Left,
+				});
+			
+				//礼物大小
+				$(".li" + num + " a img").css({
+					"width": Wh,
+					"transform": "rotate(" + rot + ")",
+					"-webkit-transform": "rotate(" + rot + ")",
+				});
+			
+				$(".li" + num).animate({
+					'top': $(window).height() - 250
+				}, 4000, function() {
+					//删掉已经显示完毕礼物
+					this.remove()
+				});
+				setTimeout(add, 600)
+			}
+			add();
+		</script>
+	</body>
+</html>
